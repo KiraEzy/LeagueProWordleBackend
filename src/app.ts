@@ -65,8 +65,8 @@ app.use(sessionMiddleware);
 // });
 
 // Health Check Routes
-app.get('/health', HealthController.getStatus);
-app.get('/health/db', HealthController.getDatabaseStatus);
+app.get('/api/health', HealthController.getStatus);
+app.get('/api/health/db', HealthController.getDatabaseStatus);
 
 // Game Routes
 app.get('/api/game/daily', GameController.getDailyGame);
@@ -109,8 +109,8 @@ const socketService = new SocketService(server);
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log('Available API routes:');
-  console.log('- GET /health');
-  console.log('- GET /health/db');
+  console.log('- GET /api/health');
+  console.log('- GET /api/health/db');
   console.log('- GET /api/game/daily');
   console.log('- GET /api/players');
   console.log('- POST /api/game/guess');

@@ -56,8 +56,8 @@ app.use(express.json());
 
 // Routes
 // Health Check Routes
-app.get('/health', HealthController.getStatus);
-app.get('/health/db', HealthController.getDatabaseStatus);
+app.get('/api/health', HealthController.getStatus);
+app.get('/api/health/db', HealthController.getDatabaseStatus);
 
 // Game Routes
 app.get('/api/game/daily', GameController.getDailyGame);
