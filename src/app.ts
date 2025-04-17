@@ -65,31 +65,31 @@ app.use(sessionMiddleware);
 // });
 
 // Health Check Routes
-app.get('/api/health', HealthController.getStatus);
-app.get('/api/health/db', HealthController.getDatabaseStatus);
+app.get('/health', HealthController.getStatus);
+app.get('/health/db', HealthController.getDatabaseStatus);
 
 // Game Routes
-app.get('/api/game/daily', GameController.getDailyGame);
-app.get('/api/players', GameController.getAllPlayers);
-app.post('/api/game/guess', GameController.submitGuess); // Removed guessLimiter
-app.get('/api/game/stats', GameController.getUserStats);
-app.get('/api/game/daily/complete', GameController.getDailyGameComplete);
+app.get('/game/daily', GameController.getDailyGame);
+app.get('/players', GameController.getAllPlayers);
+app.post('/game/guess', GameController.submitGuess); // Removed guessLimiter
+app.get('/game/stats', GameController.getUserStats);
+app.get('/game/daily/complete', GameController.getDailyGameComplete);
 
 // Debug routes - only available in development
 if (process.env.NODE_ENV !== 'production') {
-  app.get('/api/game/debug/answer', GameController.getDebugDailyAnswer);
+  app.get('/game/debug/answer', GameController.getDebugDailyAnswer);
   console.log('Debug routes enabled');
 }
 
 // Authentication Routes
-app.post('/api/auth/register', AuthController.register);
+app.post('/auth/register', AuthController.register);
 
 // Google Authentication Routes
-app.get('/api/auth/google', AuthController.googleAuth);
-app.get('/api/auth/google/callback', AuthController.googleCallback);
+app.get('/auth/google', AuthController.googleAuth);
+app.get('/auth/google/callback', AuthController.googleCallback);
 
 // Admin Routes - protected by API key
-app.post('/api/admin/generate-daily-answers', AdminController.generateDailyAnswers);
+app.post('/admin/generate-daily-answers', AdminController.generateDailyAnswers);
 
 // 404 handler
 app.use((req, res) => {
@@ -109,20 +109,20 @@ const socketService = new SocketService(server);
 server.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
   console.log('Available API routes:');
-  console.log('- GET /api/health');
-  console.log('- GET /api/health/db');
-  console.log('- GET /api/game/daily');
-  console.log('- GET /api/players');
-  console.log('- POST /api/game/guess');
-  console.log('- GET /api/game/stats');
-  console.log('- GET /api/game/daily/complete');
+  console.log('- GET /health');
+  console.log('- GET /health/db');
+  console.log('- GET /game/daily');
+  console.log('- GET /players');
+  console.log('- POST /game/guess');
+  console.log('- GET /game/stats');
+  console.log('- GET /game/daily/complete');
   if (process.env.NODE_ENV !== 'production') {
-    console.log('- GET /api/game/debug/answer (DEBUG)');
+    console.log('- GET /game/debug/answer (DEBUG)');
   }
-  console.log('- POST /api/auth/register');
-  console.log('- GET /api/auth/google');
-  console.log('- GET /api/auth/google/callback');
-  console.log('- POST /api/admin/generate-daily-answers');
+  console.log('- POST /auth/register');
+  console.log('- GET /auth/google');
+  console.log('- GET /auth/google/callback');
+  console.log('- POST /admin/generate-daily-answers');
   console.log('- Socket.io multiplayer service enabled');
 });
 

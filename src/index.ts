@@ -56,28 +56,28 @@ app.use(express.json());
 
 // Routes
 // Health Check Routes
-app.get('/api/health', HealthController.getStatus);
-app.get('/api/health/db', HealthController.getDatabaseStatus);
+app.get('/health', HealthController.getStatus);
+app.get('/health/db', HealthController.getDatabaseStatus);
 
 // Game Routes
-app.get('/api/game/daily', GameController.getDailyGame);
-app.get('/api/game/players', GameController.getAllPlayers);
-app.post('/api/game/guess', GameController.submitGuess);
-app.get('/api/game/stats', GameController.getUserStats);
-app.get('/api/game/daily/complete', GameController.getDailyGameComplete);
+app.get('/game/daily', GameController.getDailyGame);
+app.get('/game/players', GameController.getAllPlayers);
+app.post('/game/guess', GameController.submitGuess);
+app.get('/game/stats', GameController.getUserStats);
+app.get('/game/daily/complete', GameController.getDailyGameComplete);
 
 // Debug routes - only available in development
 if (process.env.NODE_ENV !== 'production') {
-  app.get('/api/game/debug/answer', GameController.getDebugDailyAnswer);
+  app.get('/game/debug/answer', GameController.getDebugDailyAnswer);
 }
 
 // Authentication Routes
-app.post('/api/auth/register', AuthController.register);
-app.get('/api/auth/google', AuthController.googleAuth);
-app.get('/api/auth/google/callback', AuthController.googleCallback);
+app.post('/auth/register', AuthController.register);
+app.get('/auth/google', AuthController.googleAuth);
+app.get('/auth/google/callback', AuthController.googleCallback);
 
 // Admin Routes - protected by API key
-app.post('/api/admin/generate-daily-answers', AdminController.generateDailyAnswers);
+app.post('/admin/generate-daily-answers', AdminController.generateDailyAnswers);
 
 // 404 handler
 app.use((req, res) => {
