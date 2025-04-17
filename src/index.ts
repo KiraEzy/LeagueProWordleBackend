@@ -6,10 +6,10 @@ import { Server } from 'socket.io';
 import passport from 'passport';
 import session from 'express-session';
 import './config/passport';
-
-import { authRouter } from './routes/auth.routes';
-import { userRouter } from './routes/user.routes';
-import { gameRouter } from './routes/game.routes';
+import { GameController } from './controllers/game.controller';
+import { HealthController } from './controllers/health.controller';
+import { AuthController } from './controllers/auth.controller';
+import { AdminController } from './controllers/admin.controller';
 import { setupSocketController } from './controllers/socket.controller';
 
 // Load environment variables
@@ -55,13 +55,39 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRouter);
-app.use('/api/users', userRouter);
-app.use('/api/game', gameRouter);
+// Health Check Routes
+app.get('/health', HealthController.getStatus);
+app.get('/health/db', HealthController.getDatabaseStatus);
 
-// Health check route
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok' });
+// Game Routes
+app.get('/api/game/daily', GameController.getDailyGame);
+app.get('/api/game/players', GameController.getAllPlayers);
+app.post('/api/game/guess', GameController.submitGuess);
+app.get('/api/game/stats', GameController.getUserStats);
+app.get('/api/game/daily/complete', GameController.getDailyGameComplete);
+
+// Debug routes - only available in development
+if (process.env.NODE_ENV !== 'production') {
+  app.get('/api/game/debug/answer', GameController.getDebugDailyAnswer);
+}
+
+// Authentication Routes
+app.post('/api/auth/register', AuthController.register);
+app.get('/api/auth/google', AuthController.googleAuth);
+app.get('/api/auth/google/callback', AuthController.googleCallback);
+
+// Admin Routes - protected by API key
+app.post('/api/admin/generate-daily-answers', AdminController.generateDailyAnswers);
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
+});
+
+// Error handler
+app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Something went wrong!' });
 });
 
 // Setup socket controller
