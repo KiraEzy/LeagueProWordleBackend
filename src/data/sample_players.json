@@ -1,0 +1,138 @@
+[
+  {
+    "name": "Faker",
+    "team": "T1",
+    "role": "Mid",
+    "region": "LCK",
+    "active": true,
+    "year_started": 2013,
+    "nationality": "Korea"
+  },
+  {
+    "name": "Chovy",
+    "team": "Gen.G",
+    "role": "Mid",
+    "region": "LCK",
+    "active": true,
+    "year_started": 2018,
+    "nationality": "Korea"
+  },
+  {
+    "name": "Caps",
+    "team": "G2 Esports",
+    "role": "Mid",
+    "region": "LEC",
+    "active": true,
+    "year_started": 2016,
+    "nationality": "Denmark",
+    "image_url": "https://example.com/caps.jpg"
+  },
+  {
+    "name": "Bjergsen",
+    "team": "Team Liquid",
+    "role": "Mid",
+    "region": "LCS",
+    "active": true,
+    "year_started": 2013,
+    "nationality": "Denmark"
+  },
+  {
+    "name": "Knight",
+    "team": "TOP Esports",
+    "role": "Mid",
+    "region": "LPL",
+    "active": true,
+    "year_started": 2017,
+    "nationality": "China"
+  },
+  {
+    "name": "Jankos",
+    "team": "Team Heretics",
+    "role": "Jungle",
+    "region": "LEC",
+    "active": true,
+    "year_started": 2013,
+    "nationality": "Poland"
+  },
+  {
+    "name": "Keria",
+    "team": "T1",
+    "role": "Support",
+    "region": "LCK",
+    "active": true,
+    "year_started": 2020,
+    "nationality": "Korea"
+  },
+  {
+    "name": "Rekkles",
+    "team": "Fnatic",
+    "role": "ADC",
+    "region": "LEC",
+    "active": true,
+    "year_started": 2012,
+    "nationality": "Sweden"
+  },
+  {
+    "name": "Ruler",
+    "team": "JD Gaming",
+    "role": "ADC",
+    "region": "LPL",
+    "active": true,
+    "year_started": 2016,
+    "nationality": "Korea"
+  },
+  {
+    "name": "Broken Blade",
+    "team": "G2 Esports",
+    "role": "Top",
+    "region": "LEC",
+    "active": true,
+    "year_started": 2018,
+    "nationality": "Germany"
+  },
+  {
+    "name": "Upset",
+    "team": "Team Vitality",
+    "role": "ADC",
+    "region": "LEC",
+    "active": true,
+    "year_started": 2016,
+    "nationality": "Germany"
+  },
+  {
+    "name": "Perkz",
+    "team": "Team Vitality",
+    "role": "Mid",
+    "region": "LEC",
+    "active": true,
+    "year_started": 2015,
+    "nationality": "Croatia"
+  },
+  {
+    "name": "Humanoid",
+    "team": "Fnatic",
+    "role": "Mid",
+    "region": "LEC",
+    "active": true,
+    "year_started": 2018,
+    "nationality": "Czech Republic"
+  },
+  {
+    "name": "Deft",
+    "team": "DRX",
+    "role": "ADC",
+    "region": "LCK",
+    "active": true,
+    "year_started": 2013,
+    "nationality": "Korea"
+  },
+  {
+    "name": "Rookie",
+    "team": "Victory Five",
+    "role": "Mid",
+    "region": "LPL",
+    "active": true,
+    "year_started": 2014,
+    "nationality": "Korea"
+  }
+] 
